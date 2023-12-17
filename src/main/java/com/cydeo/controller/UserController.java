@@ -62,5 +62,13 @@ userService.update(userDto);
 return "redirect:/user/create";
     }
 
+    @GetMapping("/delete/{username}")
+    public String deleteUser(@PathVariable("username") String username){
+
+        userService.deleteById(username);
+
+        return "redirect:/user/create";
+    }
+
 
 }
