@@ -1,6 +1,7 @@
 package com.cydeo.convertor;
 
 import com.cydeo.dto.RoleDto;
+import com.cydeo.dto.UserDto;
 import com.cydeo.service.RoleService;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.core.convert.converter.Converter;
@@ -22,4 +23,8 @@ public class RoleDtoConvertor implements Converter<String, RoleDto> {
 
         return roleService.findById(Long.parseLong(source));
     }
+
+
+
+
 }

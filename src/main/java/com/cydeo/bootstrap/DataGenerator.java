@@ -25,9 +25,10 @@ ProjectService projectService;
 
 
 
-    public DataGenerator(RoleService roleService, UserService userService) {
+    public DataGenerator(RoleService roleService, UserService userService,ProjectService projectService) {
         this.roleService = roleService;
         this.userService = userService;
+        this.projectService=projectService;
     }
 
     @Override
@@ -57,8 +58,8 @@ userService.save(userDto4);
 
 
         ProjectDto projectDto= new ProjectDto("Spring MVC","PRO1",userDto4, LocalDate.now(),LocalDate.now().plusDays(30),"creating db", Status.OPEN);
-        ProjectDto projectDto2= new ProjectDto("Spring ORM","ER12",userDto, LocalDate.now(),LocalDate.now().plusDays(12),"creating db", Status.OPEN);
-        ProjectDto projectDto3= new ProjectDto("Spring CONTAINER","AB33",userDto, LocalDate.now(),LocalDate.now().plusDays(18),"creating db", Status.OPEN);
+        ProjectDto projectDto2= new ProjectDto("Spring ORM","ER12",userDto, LocalDate.now(),LocalDate.now().plusDays(12),"creating db", Status.INPROGRESS);
+        ProjectDto projectDto3= new ProjectDto("Spring CONTAINER","AB33",userDto, LocalDate.now(),LocalDate.now().plusDays(18),"creating db", Status.COMPLETE);
 
 projectService.save(projectDto);
 projectService.save(projectDto2);
