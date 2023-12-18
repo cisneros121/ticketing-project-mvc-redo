@@ -1,8 +1,11 @@
 package com.cydeo.bootstrap;
 
+import com.cydeo.dto.ProjectDto;
 import com.cydeo.dto.RoleDto;
 import com.cydeo.dto.UserDto;
 import com.cydeo.enums.Gender;
+import com.cydeo.enums.Status;
+import com.cydeo.service.ProjectService;
 import com.cydeo.service.RoleService;
 import com.cydeo.service.UserService;
 import com.cydeo.service.impl.RoleServiceImpl;
@@ -10,12 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class DataGenerator implements CommandLineRunner {
 
 
 RoleService roleService;
 UserService userService;
+ProjectService projectService;
 
 
 
@@ -48,6 +54,15 @@ userService.save(userDto);
 userService.save(userDto2);
 userService.save(userDto3);
 userService.save(userDto4);
+
+
+        ProjectDto projectDto= new ProjectDto("Spring MVC","PRO1",userDto4, LocalDate.now(),LocalDate.now().plusDays(30),"creating db", Status.OPEN);
+        ProjectDto projectDto2= new ProjectDto("Spring ORM","ER12",userDto, LocalDate.now(),LocalDate.now().plusDays(12),"creating db", Status.OPEN);
+        ProjectDto projectDto3= new ProjectDto("Spring CONTAINER","AB33",userDto, LocalDate.now(),LocalDate.now().plusDays(18),"creating db", Status.OPEN);
+
+projectService.save(projectDto);
+projectService.save(projectDto2);
+projectService.save(projectDto3);
 
 
     }

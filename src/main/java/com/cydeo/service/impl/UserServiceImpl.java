@@ -1,5 +1,6 @@
 package com.cydeo.service.impl;
 
+import com.cydeo.dto.ProjectDto;
 import com.cydeo.dto.UserDto;
 import com.cydeo.service.UserService;
 import org.springframework.stereotype.Service;
