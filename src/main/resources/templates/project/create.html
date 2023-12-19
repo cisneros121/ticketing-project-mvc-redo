@@ -134,7 +134,7 @@
                                                 <td th:text="${proj.manager.firstName+' '+proj.manager.lastName}"></td>
                                                 <td th:text="${proj.projectStatus.value}"></td>
                                                 <td>
-                                                    <a href="#"><button type="button" class="btn btn-warning rounded-0">Update</button></a>
+                                                    <a th:href="@{/project/update/{id}(id=${proj.getProjectCode()})}"><button type="button" class="btn btn-warning rounded-0">Update</button></a>
                                                     <a th:href="@{/project/delete/{id}(id=${proj.getProjectCode()})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
                                                     <a th:href="@{/project/complete/{id}(id=${proj.getProjectCode()})}"><button type="button" class="btn btn-info rounded-0">Complete</button></a>
                                                 </td>

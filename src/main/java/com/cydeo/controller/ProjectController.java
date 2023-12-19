@@ -61,6 +61,20 @@ projectService.complete(projectService.findById(project));
 return "redirect:/project/create";
     }
 
+ @GetMapping("/update/{projectCode}")
+    public String editProject(@PathVariable("projectCode") String project,Model model){
+     model.addAttribute("project",projectService.findById(project));
+     model.addAttribute("projects",projectService.findAll());
+     model.addAttribute("managers",userService.findManagers());
+        return "/project/update";
+ }
 
+    @PostMapping("/update")
+    public String editProject(ProjectDto projectDto){
+
+
+        projectService.update(projectDto);
+        return "redirect:/project/create";
+    }
 
 }
