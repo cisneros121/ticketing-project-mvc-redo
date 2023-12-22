@@ -1,6 +1,7 @@
 package com.cydeo.service.impl;
 
 import com.cydeo.dto.TaskDto;
+import com.cydeo.dto.UserDto;
 import com.cydeo.enums.Status;
 import com.cydeo.service.TaskService;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.time.LocalTime;
 import java.util.IllegalFormatCodePointException;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl extends AbstractMapService<Long,TaskDto> implements TaskService {
@@ -62,5 +64,11 @@ public class TaskServiceImpl extends AbstractMapService<Long,TaskDto> implements
     @Override
     public List<TaskDto> findAll() {
         return super.findAll();
+    }
+
+
+    @Override
+    public List<TaskDto> findAllManagerTasks(UserDto manager) {
+        return findAll().stream().filter(x->x.getProject().getManager().equals(manager)).collect(Collectors.toList());
     }
 }
