@@ -6,8 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class TaskDto {
@@ -18,4 +19,15 @@ public class TaskDto {
     private String taskDetail;
     private Status taskStatus;
     private LocalDate assignedDate;
+
+
+    public TaskDto(ProjectDto project, UserDto employee, String taskSubject, String taskDetail, Status taskStatus, LocalDate assignedDate) { // postgress is doing id
+        this.project = project;
+        this.employee = employee;
+        this.taskSubject = taskSubject;
+        this.taskDetail = taskDetail;
+        this.taskStatus = taskStatus;
+        this.assignedDate = assignedDate;
+        this.id= UUID.randomUUID().getLeastSignificantBits(); // randomly assigned
+    }
 }

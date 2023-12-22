@@ -69,6 +69,9 @@ return "redirect:/project/create";
         return "/project/update";
  }
 
+
+
+
     @PostMapping("/update")
     public String editProject(ProjectDto projectDto){
 
@@ -76,5 +79,7 @@ return "redirect:/project/create";
         projectService.update(projectDto);
         return "redirect:/project/create";
     }
+
+
 
 }
