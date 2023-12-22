@@ -32,7 +32,7 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form th:action="@{/task/update}" method="post" th:object="${project}">
+                                    <form th:action="@{/task/update/{id}(id=${task.getId()})}" method="post" th:object="${task}">
 
                                         <div class="row">
                                             <div class="col">
@@ -126,8 +126,8 @@
                                                 <td th:text="${tasks.assignedDate}"></td>
                                                 <td th:text="${tasks.project.projectStatus.value}"></td>
                                                 <td class="actions">
-                                                    <a th:href="@{/task/update/{id}(id=${project.getId()})}" class="btn btn-warning rounded-0">Update</a>
-                                                    <a th:href="@{/task/delete/{id}(id=${project.getId()})}" class="btn btn-danger rounded-0">Delete</a>
+                                                    <a th:href="@{/task/update/{id}(id=${task.getId()})}" class="btn btn-warning rounded-0">Update</a>
+                                                    <a th:href="@{/task/delete/{id}(id=${task.getId()})}" class="btn btn-danger rounded-0">Delete</a>
                                                 </td>
 
                                             </tr>

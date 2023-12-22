@@ -60,7 +60,7 @@ public class TaskController {
 
 
 
-        model.addAttribute("project",taskService.findById(taskId));
+        model.addAttribute("task",taskService.findById(taskId));
         model.addAttribute("projects",projectService.findAll());
         model.addAttribute("employees",userService.findEmployees());// create a method to bring all employees only
         model.addAttribute("taskList",taskService.findAll());
@@ -71,11 +71,10 @@ public class TaskController {
         return "/task/update";
     }
 
-    @PostMapping("/update")
-    public String updatePost( TaskDto taskDto){
-
-
-taskService.update(taskDto);
+    @PostMapping("/update/{taskId}")
+    public String updatePost(@PathVariable("taskId") long taskId, TaskDto taskDto){
+taskDto.setId(taskId);
+        taskService.update(taskDto);
 
 
 
